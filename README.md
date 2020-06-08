@@ -3,10 +3,10 @@
 ![landing page preview](img/dogdog1.gif)
 ![squirrel gif](img/squirrel.gif)
 
-### Bark! Bark! This project is under construction.. check back soon ❤️
+### This project is under construction.. check back soon ❤️
 
 #### A game about a squirrel created by Drew Anderson (MoHDI) and Jeremy Kale Padot
-#### mohdi.com kalepadot.com
+[modhi](https://www.mohdi.com) [kale](https://www.kalepadot.com)
 #### June 2020
 
 #### Install this application
