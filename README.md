@@ -1,11 +1,12 @@
 # Dog Dog Crow Crow
 
-![landing page preview](img/dogdog.gif)
+![landing page preview](img/dogdog1.gif)
 ![squirrel gif](img/squirrel.gif)
 
 ### Bark! Bark! This project is under construction.. check back soon ❤️
 
-#### A game about a squirrel created by Drew Anderson and Jeremy Kale Padot
+#### A game about a squirrel created by Drew Anderson (MoHDI) and Jeremy Kale Padot
+#### mohdi.com kalepadot.com
 #### June 2020
 
 #### Install this application
