@@ -6,7 +6,7 @@
 ### This project is under construction.. check back soon ❤️
 
 #### A game about a squirrel created by Drew Anderson (MoHDI) and Jeremy Kale Padot
-[modhi](https://www.mohdi.com) [kale](https://www.kalepadot.com)
+[modhi](https://www.mohdi.com) & [kalepadot](https://www.kalepadot.com)
 #### June 2020
 
 #### Install this application
