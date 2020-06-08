@@ -1,6 +1,6 @@
 # Dog Dog Crow Crow
 
-![landing page preview](img/dogdogimg.gif)
+![landing page preview](img/dogdog.gif)
 ![squirrel gif](img/squirrel.gif)
 
 ### Bark! Bark! This project is under construction.. check back soon ❤️
