@@ -6,15 +6,39 @@
   <title>Dog Dog Crow Crow</title>
   <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
   <script type="text/javascript" src="TitleScene.js"></script>
+  <script type="text/javascript" src="DogDogGame.js"></script>
+  <script type="text/javascript" src="MapTest.js"></script>
   <script type="text/javascript" src="game.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   
   <script type="text/javascript">
+var isUnlocked = false;
+function unlock() {
 
+	if(isIOS || this.unlocked)
+		return;
+
+	// create empty buffer and play it
+	var buffer = myContext.createBuffer(1, 1, 22050);
+	var source = myContext.createBufferSource();
+	source.buffer = buffer;
+	source.connect(myContext.destination);
+	source.noteOn(0);
+
+	// by checking the play state after some time, we know if we're really unlocked
+	setTimeout(function() {
+		if((source.playbackState === source.PLAYING_STATE || source.playbackState === source.FINISHED_STATE)) {
+			isUnlocked = true;
+		}
+	}, 0);
+
+}
 </script>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body bgcolor="#0xFFFFFF">
 
 </body>
 </html>

@@ -15,7 +15,7 @@ class TitleScene extends Phaser.Scene {
     // this.load.spritesheet("ui_level_number", 'images/ui/level_numbers.png', { frameWidth: 37, frameHeight: 48});
   
     this.load.image("titleDog", "/img/dogdogimg.gif");
-    
+    this.load.image("landingScreenDog", "/img/land_screen.jpg");
   
   
         var progressBox = this.add.graphics();
@@ -74,37 +74,13 @@ class TitleScene extends Phaser.Scene {
   
   // titletemp.setScale(.25);
   
-  var titletemp = this.add.image(400,300,"titleDog").setInteractive();
+  var titletemp = this.add.image(400,300,"titleDog").setInteractive({ useHandCursor: true });
   titletemp.depth = 506;
-  titletemp.setScale(.5);
+  titletemp.setScale(1);
+  titletemp.on('pointerover', function(){ this.setScale(1.3); });
+  titletemp.on('pointerout', function(){ this.setScale(1);});
   // titletemp.setAlpha(.5);
-  
-  var bone = this.add.container(400,550);
-  var bone_btn = this.add.image(0,0,"titleDog").setInteractive({ useHandCursor: true });
-    bone_btn.on('pointerover', function(){ this.setScale(1); });
-    bone_btn.on('pointerout', function(){ this.setScale(1);});
-    var labelStyle = { font: "24px courier", fill: "#000000",align: "center"};
-    var label = this.add.text(0, -24, "Bark! Bark!", labelStyle);
-    label.x -= label.width/2;
-  
-      bone.add([bone_btn,label]);
-      bone_btn.on('pointerdown', () =>   safariSoundHack(stgm(this.scene)));
-  bone.depth =508;
-  ///////////DONT ERASE
-  // titletemp.on('pointerdown', function (pointer) {
-  // // safariSoundHack(stgm(this))
-  // });
-  ////////////##########
-  // var rect = new Phaser.Geom.Rectangle(0, 0, 800, 600);
-  // this.graphicsX = this.main.add.graphics({ fillStyle: { color: 0xFFFFFF,alpha:.5} }).setInteractive({});
-  // this.graphicsX.fillRectShape(rect);
-  // this.graphicsX.depth = 500;
-  //
-  //
-  // //   // this.title.setScale(.25);
-  // this.graphicsX.on('pointerdown', function (pointer) {
-  // safariSoundHack(stgm)
-  // });
+  titletemp.on('pointerdown', () =>   safariSoundHack(stgm(this.scene)));
   
   function stgm(sc){
   
@@ -115,20 +91,7 @@ class TitleScene extends Phaser.Scene {
   // bark_01.play();
   }
     }
-    makeBoneButton(sc,labeltxt,xx,yy,emitit){
-      var bone = this.add.container(xx,yy);
-    var bone_btn = this.add.image(0,0,"bone01").setInteractive({ useHandCursor: true });
-        bone_btn.on('pointerover', function(){ this.setScale(1); });
-        bone_btn.on('pointerout', function(){ this.setScale(1);});
-        // bone_btn.on('pointerdown', () =>   this.emitter.emit(emitit));
-    // bone_btn.on('pointerdown', () =>   safariSoundHack(sc.stgm(this));
-        var labelStyle = { font: "24px courier", fill: "#000000",align: "center"};
-        var label = this.add.text(0, -24, labeltxt, labelStyle);
-        label.x -= label.width/2;
-  
-          bone.add([bone_btn,label]);
-        return bone;
-    }
+   
   create(){
     this.makeSafariFix();
     if(this.debugGame){
@@ -137,101 +100,27 @@ class TitleScene extends Phaser.Scene {
     }
   
       this.anims.create({
-       
-    //   this.anims.create({
-    //     key: 'duck_full_stand',
-    //     frames: this.anims.generateFrameNumbers('duckfull', { start: 5, end:5 }),
-    //     frameRate: 0,
-    //     repeat: 0
-    //   });
-      // this.title2 = this.add.image(400,300,"title2").setInteractive();
-      // this.title = this.add.image(400,300,"title").setInteractive();
-  
-      // this.title2 = this.add.image(400,300,"title2");
-      // this.title = this.add.image(400,300,"title");
-      // this.title.setScale(.25);
-      // this.title.depth = 500;
-  
-      // this.title2.setScale(.25);
-    //   this.title = this.add.image(400,300,"title").setInteractive();
-    //   // this.title.setScale(.25);
-  
-    // this.title.on('pointerdown', function (pointer) {
-    //   if(!this.mobile){
-    //   // var bark_01=this.main.sound.add("bark_01");
-    //   // bark_01.play();
-    // }
-    //   // this.addDownCallback();
-    //     // this.startNext();
-    //     // safariSoundHack(this.startGame());
-    //     this.flickerOut();
-    //   }, this);
-  
-      // this.cursorKeys = this.input.keyboard.createCursorKeys();
-  // gsap.delayedCall(1.5, () => {this.flickerOut();});
+
   })
 }
   
   
     startNext(){
-      // console.log(this);
+      console.log("start the next scene");
       // gsap.to(this.title, {alpha:0, duration:2,ease: "sine"});
   
   
-    //   this.scene.start("DogBarkGame");
-    }
-    flickerOut(){
-  
-  
-          var flicker = gsap.timeline( {repeat:20,yoyo:false});
-          var picsTransition = .02;
-      flicker.to(this.title, picsTransition,{alpha:0, ease:Expo.easeNone});
-      gsap.to(this.title2, .5,{alpha:0,delay:1,ease:Expo.easeNone});
-      this.bigduck = this.main.add.sprite(900,300,'big_duck');
-            gsap.delayedCall(1.5, this.duckTime,[this]);
-            gsap.delayedCall(3.5, () => {this.bigduck.play("load_duck");});
-            // gsap.delayedCall(4, this.duckTime,[this]);
-    }
-    duckTime(sc){
-      //console.log(" duck time cLLD");
-      sc.bigduck.play("walk_duck");
-        // sc.scene.start("DogBarkGame");
-        gsap.to(sc.bigduck, 7,{x:-100,delay:0, onComplete:() => {sc.startGame2();},ease:Expo.easeNone});
+      // this.scene.start("DogDogGame");
+
+      this.scene.start("MapTest");
     }
   
-    standDuck(ob){
-      //console.log(ob);
-        // ob.bigduck.play("load_duck");
-      // gsap.delayedCall(3,() => {ob.startGame();});
-    }
-  duckTimeGo(){
-      // this.ob.start("DogBarkGame");
-  // this.start("DogBarkGame");
-  //console.log(" ANTS ");
-      // ob.bigduck.play("walk_duck");
-  
-    // ob.gsap.to(ob.bigduck, 4,{x:-100,delay:0,ease:Expo.easeNone,onComplete:() => {ob.scene.start("DogBarkGame")}});
-  
-  }
-  startGame2(){
-    //console.log("start game")
-        // this.init = true;
-      this.scene.start("DogBarkGame");
-  }
   startGame(){
-    //console.log("start game")
+    console.log("start game")
         this.main.init = true;
         // gam.scene.start("DogBarkGame");
   }
   
-      destroyLoader(ob){
-          //console.log("big:" + ob);
-            ob.play("walk_duck");
-            gsap.to(ob, {x:-100, duration:1.5, onComplete:function(){
-            ob.destroy();
-          }
-        });
-      }
       update() {
         // if(this.cursorKeys.space.isDown && this.init){
         // this.start("DogBarkGame");
