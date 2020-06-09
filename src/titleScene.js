@@ -13,10 +13,20 @@ class TitleScene extends Phaser.Scene {
     // this.load.spritesheet("big_duck", 'images/characters/duck/big_duck.png', { frameWidth: 169, frameHeight: 175});
     // this.load.image("ui_level_bg", "images/ui/level_bg.png");
     // this.load.spritesheet("ui_level_number", 'images/ui/level_numbers.png', { frameWidth: 37, frameHeight: 48});
-  
+    this.load.spritesheet("cloud", '/img/cloud.png', { frameWidth: 78, frameHeight: 99, endframe:16});
+        
     this.load.image("titleDog", "/img/dogdogimg.gif");
     this.load.image("landingScreenDog", "/img/land_screen.jpg");
   
+
+
+  this.load.tilemapTiledJSON('tilemap', '/img/maps/park001.json');
+  //  this.load.image("tiles", "/img/maps/park.png");
+
+  //  this.load.tilemap('map', '/img/maps/park001.json', null, Phaser.Tilemap.TILED_JSON);
+   this.load.image('tiles', '/img/maps/park.png');  
+   
+  //  this.load.tilemapWeltmeister('parkmap', '/img/maps/park001.json');
   
         var progressBox = this.add.graphics();
       var progressBar = this.add.graphics();
@@ -86,6 +96,7 @@ class TitleScene extends Phaser.Scene {
   
   console.log("START GAME DUDE" );
   console.log(sc);
+
   sc.scene.startNext();
   // var bark_01=sc.scene.sound.add("bark_01");
   // bark_01.play();
@@ -109,9 +120,12 @@ class TitleScene extends Phaser.Scene {
       console.log("start the next scene");
       // gsap.to(this.title, {alpha:0, duration:2,ease: "sine"});
   
-  
-      // this.scene.start("DogDogGame");
 
+      // this.scene.start("DogDogGame");
+    //  var map = this.add.tilemap('map1');  // 
+    //   map.addTilesetImage('park', 'tiles');  // set tileset name
+    //  var layer = this.map.createLayer('bgground');  // set layer name
+    //   layer.resizeWorld();
       this.scene.start("MapTest");
     }
   
