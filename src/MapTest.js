@@ -14,27 +14,19 @@ class MapTest extends Phaser.Scene {
   
   }
   makeAMap(){
-      
-    // this.load.image("parktiles", "/img/maps/park.png");
-    // this.load.tilemapTiledJSON('parkmap', '/img/maps/park001.json');
-    // var map = this.make.tilemap({ key: 'parkmap' });
+      /// this article was super helpful 
+     // https://medium.com/@michaelwesthadley/modular-game-worlds-in-phaser-3-tilemaps-1-958fc7e6bbd6
+
+     // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
+  // Phaser's cache (i.e. the name you used in preload)
     const tilemap = this.make.tilemap({key: 'tilemap'});
     const tileset = tilemap.addTilesetImage('park', 'tiles');
-    tilemap.createStaticLayer('layer1', tileset, 0, 0);
-    tilemap.createStaticLayer('layer2', tileset, 0, 0);
 
-//    this.scene.add(tilemap);
+  // Parameters: layer name (or index) from Tiled, tileset, x, y
+  const bgLayer = tilemap.createStaticLayer("bglayer", tileset, 0, 0);
+  const topLayer = tilemap.createStaticLayer("toplayer", tileset, 0, 0);
 
-    // var map = this.make.tilemap({ key: 'map' });
-
-    // var tiles = map.addTilesetImage('parktiles2000', 'tiles');
-
-    // var layer = map.createStaticLayer(0, tiles, 0, 0);
-    // var tiles = map.addTilesetImage('thePark', 'parktiles');
-    // this.scene.add.tilemap(map);
-    // layer = map.createDynamicLayer('Ground', tiles, 0, 0).setVisible(false);
-
-    // this.rt = this.add.renderTexture(0, 0, 800, 600);
+//
     var cloud= this.scene.add.sprite(400,300,'cloud');
     
     // cloud.play();
