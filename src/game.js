@@ -4,7 +4,7 @@ window.onload = function(){
     width: 800 ,
     height:600,
     backgroundColor: 0xFFFFFF,
-    scene: [TitleScene,DogDogGame,MapTest],
+    scene: [TitleScene,DogDogGame,MapTest,CharTest],
     autoCenter: Phaser.Scale,
 
     physics: {

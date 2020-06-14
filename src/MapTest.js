@@ -24,7 +24,7 @@ class MapTest extends Phaser.Scene {
 
   // Parameters: layer name (or index) from Tiled, tileset, x, y
   const bgLayer = tilemap.createStaticLayer("bglayer", tileset, 0, 0);
-  const topLayer = tilemapxx.createStaticLayer("toplayer", tileset, 0, 0);
+  const topLayer = tilemap.createStaticLayer("toplayer", tileset, 0, 0);
 
 //
     var cloud= this.scene.add.sprite(400,300,'cloud');
@@ -37,7 +37,7 @@ class MapTest extends Phaser.Scene {
         this.add.image(valueA,value,"titleDog").setInteractive({ useHandCursor: true });
 
             }
-
+            
 
   }
 
